@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.reg_password);
         confirmPassword = (EditText) findViewById(R.id.reg_password_two);
         register = (Button) findViewById(R.id.id16_reg_btn);
+        login = (Button) findViewById(R.id.id17_reg_login_btn);
+
         DB = new DBHelper(this);
 
         register.setOnClickListener(new View.OnClickListener() {

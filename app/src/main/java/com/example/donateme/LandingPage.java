@@ -21,6 +21,7 @@ public class LandingPage extends AppCompatActivity {
         email = (EditText) findViewById(R.id.id7_textUserEmail);
         password = (EditText) findViewById(R.id.id7_textUserPassword);
         btnlogin = (Button) findViewById(R.id.id9_login);
+        btnsignup = (Button) findViewById(R.id.id10_sign_in);
         DB = new DBHelper(this);
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
