@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_email"
                 app:boxStrokeColor="@color/light_blue"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:hintTextAppearance="@style/HintTextAppearance"
                 app:hintTextColor="@color/hint_color">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -59,7 +59,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans"
                     android:inputType="textEmailAddress"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="@color/Text1"
                     android:textSize="@dimen/sp_16" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -71,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_password"
                 app:boxStrokeColor="@color/light_blue"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Display1"
+                app:hintTextAppearance="@style/HintTextAppearance"
                 app:hintTextColor="@color/hint_color"
                 app:passwordToggleEnabled="true">
 
@@ -81,7 +80,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans"
                     android:inputType="textPassword"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     android:textColor="@color/Text1"
                     android:textSize="@dimen/sp_16" />
             </com.google.android.material.textfield.TextInputLayout>
