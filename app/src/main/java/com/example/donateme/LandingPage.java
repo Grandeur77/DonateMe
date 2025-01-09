@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class LandingPage extends AppCompatActivity {
     EditText email, password;
-    Button btnlogin;
+    Button btnlogin, btnsignup;
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,14 @@ public class LandingPage extends AppCompatActivity {
                         Toast.makeText(LandingPage.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+
+        btnsignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }

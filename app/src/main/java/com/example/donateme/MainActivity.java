@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText fullName, email, number, password, confirmPassword;
-    Button register;
+    Button register, login;
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
                     }
                 } }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LandingPage.class);
+                startActivity(intent);
+            }
         });
 
     }
