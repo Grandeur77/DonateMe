@@ -1,26 +1,60 @@
 package com.example.donateme;
-
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    @SuppressLint("MissingInflatedId")
+    EditText fullName, email, number, password, confirmPassword;
+    Button register;
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cardMyPin), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        fullName = (EditText) findViewById(R.id.reg_name);
+        email = (EditText) findViewById(R.id.reg_email);
+        number = (EditText) findViewById(R.id.reg_phoneNo);
+        password = (EditText) findViewById(R.id.reg_password);
+        confirmPassword = (EditText) findViewById(R.id.reg_password_two);
+        register = (Button) findViewById(R.id.id16_reg_btn);
+        DB = new DBHelper(this);
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userEmail = email.getText().toString();
+                String pass = password.getText().toString();
+                String repass = confirmPassword.getText().toString();
+
+                if(userEmail.equals("")||pass.equals("")||repass.equals(""))
+                    Toast.makeText(MainActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                else{
+                    if(pass.equals(repass)){
+                        Boolean checkuser = DB.checkusername(userEmail);
+                        if(checkuser==false){
+                            Boolean insert = DB.insertData(userEmail, pass);
+                            if(insert==true){
+                                Toast.makeText(MainActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(),SplashScreen.class);
+                                startActivity(intent);
+                            }else{
+                                Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(MainActivity.this, "User already exists! please sign in", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(MainActivity.this, "Passwords not matching", Toast.LENGTH_SHORT).show();
+                    }
+                } }
         });
+
     }
 }
