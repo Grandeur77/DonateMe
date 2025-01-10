@@ -16,12 +16,6 @@
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
-            android:name=".settings"
-            android:exported="false" />
-        <activity
-            android:name=".about"
-            android:exported="false" />
-        <activity
             android:name=".Dashboard"
             android:exported="false" />
         <activity
