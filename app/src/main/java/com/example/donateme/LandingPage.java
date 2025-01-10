@@ -37,7 +37,7 @@ public class LandingPage extends AppCompatActivity {
                     Boolean checkuserpass = DB.checkusernamepassword(userEmail, pass);
                     if(checkuserpass==true){
                         Toast.makeText(LandingPage.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(getApplicationContext(), SplashScreen.class);
+                        Intent intent  = new Intent(getApplicationContext(), SignUp.class);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LandingPage.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
@@ -49,7 +49,7 @@ public class LandingPage extends AppCompatActivity {
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SignUp.class);
                 startActivity(intent);
             }
         });

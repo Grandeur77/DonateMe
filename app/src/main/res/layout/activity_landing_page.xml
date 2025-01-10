@@ -20,7 +20,7 @@
             <ImageView
                 android:layout_width="@dimen/dim_150"
                 android:layout_height="@dimen/dim_150"
-                app:srcCompat="@drawable/inapp_logo"
+                app:srcCompat="@drawable/logo"
                 tools:srcCompat="@drawable/logo" />
 
             <TextView
