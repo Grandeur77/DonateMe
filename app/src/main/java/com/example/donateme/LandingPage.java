@@ -27,19 +27,19 @@ public class LandingPage extends AppCompatActivity {
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String userEmail = email.getText().toString();
                 String pass = password.getText().toString();
 
-                if(userEmail.equals("")||pass.equals(""))
+                if(userEmail.equals("") || pass.equals("")) {
                     Toast.makeText(LandingPage.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
-                else{
+                } else {
                     Boolean checkuserpass = DB.checkusernamepassword(userEmail, pass);
-                    if(checkuserpass==true){
-                        Toast.makeText(LandingPage.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(getApplicationContext(), SignUp.class);
+                    if(checkuserpass == true) {
+                        Toast.makeText(LandingPage.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                        // Navigate to the Dashboard if login is successful
+                        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
                         startActivity(intent);
-                    }else{
+                    } else {
                         Toast.makeText(LandingPage.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -53,5 +53,7 @@ public class LandingPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }
