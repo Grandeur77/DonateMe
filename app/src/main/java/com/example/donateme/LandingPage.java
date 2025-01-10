@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class LandingPage extends AppCompatActivity {
     EditText email, password;
-    Button btnlogin, btnsignup;
+    Button btnlogin, btnsignup, btnforgot;
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class LandingPage extends AppCompatActivity {
         password = (EditText) findViewById(R.id.id7_textUserPassword);
         btnlogin = (Button) findViewById(R.id.id9_login);
         btnsignup = (Button) findViewById(R.id.id10_sign_in);
+        btnforgot = (Button) findViewById(R.id.id8_Forget_password);
         DB = new DBHelper(this);
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +51,14 @@ public class LandingPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SignUp.class);
+                startActivity(intent);
+            }
+        });
+
+        btnforgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
                 startActivity(intent);
             }
         });
