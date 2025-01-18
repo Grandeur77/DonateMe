@@ -13,7 +13,10 @@
         android:theme="@style/Theme.DonateMe"
         tools:targetApi="31">
         <activity
-            android:name=".change_pw"
+            android:name=".update_profile"
+            android:exported="false" />
+        <activity
+            android:name=".reset_pw"
             android:exported="false" />
         <activity
             android:name=".ForgotPassword"
@@ -25,7 +28,7 @@
             android:name=".SignUp"
             android:exported="false" />
         <activity
-            android:name=".LandingPage"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

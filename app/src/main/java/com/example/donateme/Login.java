@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LandingPage extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     EditText email, password;
     Button btnlogin, btnsignup, btnforgot;
     DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landing_page);
+        setContentView(R.layout.activity_login);
 
         email = (EditText) findViewById(R.id.id7_textUserEmail);
         password = (EditText) findViewById(R.id.id7_textUserPassword);
@@ -32,16 +32,16 @@ public class LandingPage extends AppCompatActivity {
                 String pass = password.getText().toString();
 
                 if(userEmail.equals("") || pass.equals("")) {
-                    Toast.makeText(LandingPage.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 } else {
                     Boolean checkuserpass = DB.checkusernamepassword(userEmail, pass);
                     if(checkuserpass == true) {
-                        Toast.makeText(LandingPage.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Sign in successful", Toast.LENGTH_SHORT).show();
                         // Navigate to the Dashboard if login is successful
                         Intent intent = new Intent(getApplicationContext(), Dashboard.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(LandingPage.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
