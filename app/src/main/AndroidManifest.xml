@@ -13,6 +13,24 @@
         android:theme="@style/Theme.DonateMe"
         tools:targetApi="31">
         <activity
+            android:name=".receive"
+            android:exported="false" />
+        <activity
+            android:name=".profile"
+            android:exported="false" />
+        <activity
+            android:name=".history"
+            android:exported="false" />
+        <activity
+            android:name=".food_map"
+            android:exported="false" />
+        <activity
+            android:name=".donate"
+            android:exported="false" />
+        <activity
+            android:name=".update_profile_pic"
+            android:exported="false" />
+        <activity
             android:name=".delete_profile"
             android:exported="false" />
         <activity

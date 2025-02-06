@@ -71,7 +71,7 @@
     <string name="title_activity_main10">MainActivity_10</string>
     <string name="string1">Password Assistance</string>
     <string name="string2">Regaining Access to Your Account</string>
-    <string name="string3">REST PASSWORD</string>
+    <string name="string3">RESET PASSWORD</string>
     <string name="string4">Select Image</string>
     <string name="string5">Simply erase the password associated with your account and we will send you an email with step-by-step instructions to assist you in resetting your password and regaining access to your account. Our aim is to make the process as simple as possible for you.</string>
     <string name="string6">Update Image</string>

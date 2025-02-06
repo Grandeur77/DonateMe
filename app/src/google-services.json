@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "12757288842",
+    "project_id": "donateme-a28a2",
+    "storage_bucket": "donateme-a28a2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12757288842:android:355c97e3bc9ded31076a73",
+        "android_client_info": {
+          "package_name": "com.example.donateme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw3_yrhgkkYlQYaNZhHA6_PsyEeDwc_ms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
