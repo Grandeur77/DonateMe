@@ -10,13 +10,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
-public class Settings extends AppCompatActivity {
+public class setting_activity extends AppCompatActivity {
 
     private CardView menu_update_profile,menu_update_email,menu_change_password,cardAboutUs,cardContact,menu_delete_profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_setting);
         menu_update_profile=findViewById(R.id.menu_update_profile);
         menu_update_email=findViewById(R.id.menu_update_email);
         menu_change_password=findViewById(R.id.menu_change_password);
@@ -27,7 +27,7 @@ public class Settings extends AppCompatActivity {
         menu_update_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Settings.this, update_profile.class);
+                Intent intent = new Intent(setting_activity.this, updateProfileActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
@@ -35,7 +35,7 @@ public class Settings extends AppCompatActivity {
         menu_update_email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Settings.this, update_email.class);
+                Intent intent = new Intent(setting_activity.this, updateEmailActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
@@ -43,7 +43,7 @@ public class Settings extends AppCompatActivity {
         menu_change_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Settings.this, reset_pw.class);
+                Intent intent = new Intent(setting_activity.this, changePasswordActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
@@ -51,7 +51,7 @@ public class Settings extends AppCompatActivity {
         cardAboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Settings.this, About.class);
+                Intent intent = new Intent(setting_activity.this, about.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
@@ -65,7 +65,7 @@ public class Settings extends AppCompatActivity {
         menu_delete_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Settings.this, delete_profile.class);
+                Intent intent = new Intent(setting_activity.this, deleteProfileActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
@@ -74,7 +74,7 @@ public class Settings extends AppCompatActivity {
 
     private void showAlertDialogBox() {
         //setup the Alert Builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(setting_activity.this);
         builder.setTitle("Contact Us");
         builder.setMessage("Write a mail to our gmail id tarun.utkarsh125@gamil.com");
         builder.setPositiveButton("Open Gmail", new DialogInterface.OnClickListener() {

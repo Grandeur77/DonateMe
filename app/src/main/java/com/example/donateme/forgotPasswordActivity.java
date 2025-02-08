@@ -19,7 +19,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 
-public class ForgotPassword extends AppCompatActivity {
+public class forgotPasswordActivity extends AppCompatActivity {
 
     private AppCompatButton reset_pwd_btn;
     private TextInputEditText textUserEmail;
@@ -57,8 +57,8 @@ public class ForgotPassword extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(ForgotPassword.this,"Please check your inbox" , Toast.LENGTH_LONG).show();
-                    Intent intent =new Intent(ForgotPassword.this,Login.class);
+                    Toast.makeText(forgotPasswordActivity.this,"Please check your inbox" , Toast.LENGTH_LONG).show();
+                    Intent intent =new Intent(forgotPasswordActivity.this,landing_page.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP| Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
@@ -76,7 +76,7 @@ public class ForgotPassword extends AppCompatActivity {
                     catch(Exception e)
                     {
                         Log.e(TAG,e.getMessage());
-                        Toast.makeText(ForgotPassword.this,e.getMessage() , Toast.LENGTH_LONG).show();
+                        Toast.makeText(forgotPasswordActivity.this,e.getMessage() , Toast.LENGTH_LONG).show();
                     }
                 }
                 progressBar.setVisibility(View.GONE);
