@@ -307,6 +307,75 @@
                             android:layout_marginTop="@dimen/dim_4"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardReview"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="@dimen/dim_165"
+                    android:layout_height="@dimen/dim_165"
+                    app:cardCornerRadius="@dimen/dim_12"
+                    app:cardElevation="@dimen/dim_5"
+                    android:layout_margin="@dimen/dim_10">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/cardview_bg">
+                        <ImageView
+                            android:layout_width="@dimen/dim_100"
+                            android:layout_height="@dimen/dim_100"
+                            app:srcCompat="@drawable/donate"
+                            android:layout_marginTop="@dimen/dim_8"
+                            android:layout_marginBottom="@dimen/dim_10"
+                            tools:ignore="ContentDescription,ImageContrastCheck"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Feedback"
+                            android:fontFamily="@font/opensans"
+                            android:textSize="@dimen/sp_19"
+                            android:textColor="@color/Text1"
+                            android:includeFontPadding="false"
+                            android:layout_marginTop="@dimen/dim_4" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardReviewHistory"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_width="@dimen/dim_165"
+                    android:layout_height="@dimen/dim_165"
+                    app:cardCornerRadius="@dimen/dim_12"
+                    app:cardElevation="@dimen/dim_5"
+                    android:layout_margin="@dimen/dim_10">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:background="@drawable/cardview_bg">
+                        <ImageView
+                            android:layout_width="@dimen/dim_100"
+                            android:layout_height="@dimen/dim_100"
+                            app:srcCompat="@drawable/donate"
+                            android:layout_marginTop="@dimen/dim_8"
+                            android:layout_marginBottom="@dimen/dim_10"
+                            tools:ignore="ContentDescription,ImageContrastCheck"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Reviews"
+                            android:fontFamily="@font/opensans"
+                            android:textSize="@dimen/sp_19"
+                            android:textColor="@color/Text1"
+                            android:includeFontPadding="false"
+                            android:layout_marginTop="@dimen/dim_4" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
             </GridLayout>
         </LinearLayout>
         <ProgressBar

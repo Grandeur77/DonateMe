@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 //texting
 public class MainActivity extends AppCompatActivity {
 
-    private CardView cardDonate,cardReceive,cardFoodMap,cardMyPin,cardHistory,profile,menu_setting,menu_logout;
+    private CardView cardDonate,cardReceive,cardFoodMap,cardMyPin,cardHistory,profile,menu_setting,menu_logout,feedback,review_history;
     private FirebaseAuth authProfile;private ProgressBar progressBar; private FirebaseUser firebaseUser;
     private static final  String TAG="MainActivity";
     @Override
@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         profile=findViewById(R.id.profile);
         menu_setting=findViewById(R.id.menu_setting);
         menu_logout=findViewById(R.id.menu_logout);
+        feedback=findViewById(R.id.cardReview);
+        review_history=findViewById(R.id.cardReviewHistory);
         progressBar=findViewById(R.id.progressBar);
         authProfile=FirebaseAuth.getInstance();
         firebaseUser=authProfile.getCurrentUser();
@@ -101,6 +103,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, History.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, FdBack.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
+        review_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, feedback_history.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }

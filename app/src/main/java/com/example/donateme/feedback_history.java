@@ -1,24 +1,40 @@
 package com.example.donateme;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class feedback_history extends AppCompatActivity {
-
+    RecyclerView fRecyclerView;
+    FeedbackHistoryAdapter feedAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_feedback_history);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.reviews), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        fRecyclerView=(RecyclerView) findViewById(R.id.reviews);
+        fRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        FirebaseRecyclerOptions<ReadWriteUserFeedbackHistory> options=new FirebaseRecyclerOptions.Builder<ReadWriteUserFeedbackHistory>()
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("Reviews").child(FirebaseAuth.getInstance().getCurrentUser().getUid()),ReadWriteUserFeedbackHistory.class).build();
+        feedAdapter = new FeedbackHistoryAdapter(options);
+        fRecyclerView.setAdapter(feedAdapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        feedAdapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        feedAdapter.stopListening();
     }
 }

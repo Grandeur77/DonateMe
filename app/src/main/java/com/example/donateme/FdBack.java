@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.donateme.databinding.ActivityDonateBinding;
+import com.example.donateme.databinding.ActivityFeedbackBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -22,8 +22,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FdBack extends AppCompatActivity {
-    private ActivityDonateBinding binding;
-    private AppCompatButton mButtonAddPin;
+    private ActivityFeedbackBinding binding;
+    private AppCompatButton ButtonSubmit;
     private TextInputEditText yourName, description;
     private TextInputLayout nameLayout, descriptionLayout;
     private ProgressBar progressBar;
@@ -104,18 +104,18 @@ public class FdBack extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityDonateBinding.inflate(getLayoutInflater());
+        binding = ActivityFeedbackBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         authProfile = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
-        mButtonAddPin = findViewById(R.id.button_add_pin);
+        ButtonSubmit = findViewById(R.id.button_submit);
         yourName = findViewById(R.id.name);
         description = findViewById(R.id.Description);
         nameLayout = findViewById(R.id.nameLayout);
         descriptionLayout = findViewById(R.id.DescriptionLayout);
 
-        mButtonAddPin.setOnClickListener(new View.OnClickListener() {
+        ButtonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fetchNameAndDescription();

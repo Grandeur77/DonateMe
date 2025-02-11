@@ -93,5 +93,6 @@
     <string name="title_activity_food_map">FoodMap</string>
     <string name="title_activity_receive">Receive</string>
     <string name="Feedback">Feedback</string>
+    <string name="Reviews">Reviews</string>
     <string name="string16">Your valuable insights mean the world to us! Every rating and review helps us improve and make a greater impact. Together, let’s create a more compassionate and connected community.</string>
 </resources>
