@@ -8,7 +8,7 @@ public class ReadWriteLocation {
     public void setName(String name) {
         this.name = name;
     }
-    public String name,number,food;
+    public String name,number,food,category;
     public ReadWriteLocation(){};
     public double getLat() {
         return lat;
@@ -39,11 +39,16 @@ public class ReadWriteLocation {
     public void setLng(double lng) {
         this.lng = lng;
     }
-    public ReadWriteLocation(double textLat , double textLng, String textName, String textNumber,String textFood){
+
+    public String getCategory() {
+        return category;
+    }
+    public ReadWriteLocation(double textLat , double textLng, String textName, String textNumber,String textFood, String textCategory){
         this.lat=textLat;
         this.lng=textLng;
         this.name=textName;
         this.number=textNumber;
         this.food=textFood;
+        this.category=textCategory;
     }
 }

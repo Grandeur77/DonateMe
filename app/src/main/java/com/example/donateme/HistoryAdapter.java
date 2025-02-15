@@ -16,8 +16,9 @@ public class HistoryAdapter extends FirebaseRecyclerAdapter<ReadWriteUserHistory
     }
     @Override
     protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull ReadWriteUserHistory model) {
-        holder.food.setText(model.getFood());
+        holder.item.setText(model.getItem());
         holder.description.setText(model.getDescription());
+        holder.category.setText(model.getCategory());
     }
     @NonNull
     @Override
@@ -26,12 +27,13 @@ public class HistoryAdapter extends FirebaseRecyclerAdapter<ReadWriteUserHistory
         return new myViewHolder(view);
     }
     class myViewHolder extends  RecyclerView.ViewHolder{
-        TextView food , description;
+        TextView item , description , category;
         public myViewHolder(@NonNull View itemView)
         {
             super(itemView);
-            food=(TextView)itemView.findViewById(R.id.rcfood);
+            item=(TextView)itemView.findViewById(R.id.rcitem);
             description=(TextView)itemView.findViewById(R.id.rcDescription);
+            category=(TextView)itemView.findViewById(R.id.category);
         }
     }
 }

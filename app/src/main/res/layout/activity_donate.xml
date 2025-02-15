@@ -10,6 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,22 +26,25 @@
                 android:layout_marginBottom="@dimen/dim_20"
                 android:layout_marginLeft="@dimen/dim_10"
                 android:layout_marginTop="@dimen/dim_20"/>
+
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bg_layout_with_stroke"
-                android:layout_marginBottom="@dimen/dim_25"
                 android:layout_marginTop="@dimen/dim_10"
+                android:layout_marginBottom="@dimen/dim_25"
+                android:background="@drawable/bg_layout_with_stroke"
+                android:orientation="vertical"
                 android:padding="@dimen/dim_16">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans"
+                    android:text="Donate food, drop a pin, and make a difference! 📍 Kindly remove the pin after donation to keep things clear for future donors. 🤝🍲"
                     android:textColor="@color/Text1"
-                    android:text="To donate food. A pin will be placed on your current location. The receiver can navigate to the pin to collect the donated food. We kindly remind you that after donating the food, please delete the Current donation pin to avoid any confusion for future donations."
-                    android:textSize="@dimen/sp_19"
-                    android:fontFamily="@font/opensans" />
+                    android:textSize="@dimen/sp_19" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,10 +52,11 @@
                 android:layout_marginBottom="@dimen/dim_5"
                 android:background="@drawable/bg_layout_with_stroke"
                 android:padding="@dimen/dim_16">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Food Items"
+                    android:text="Select Category"
                     android:textColor="@color/Text1"
                     android:textSize="@dimen/sp_16"
                     android:fontFamily="@font/opensans"
@@ -61,54 +66,92 @@
                     android:layout_height="@dimen/dim_1"
                     android:background="@color/white"
                     android:layout_marginBottom="@dimen/dim_8"/>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/foodItemLayout"
+
+                <Spinner
+                    android:id="@+id/spinner_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxStrokeColor="@color/light_blue"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    android:background="@drawable/spinner_backgroung"/><!-- Use the drawable you created -->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="124dp"
+                android:layout_marginBottom="@dimen/dim_5"
+                android:background="@drawable/bg_layout_with_stroke"
+                android:orientation="vertical"
+                android:padding="@dimen/dim_16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dim_8"
+                    android:fontFamily="@font/opensans"
+                    android:text="Item Name"
+                    android:textColor="@color/Text1"
+                    android:textSize="@dimen/sp_16" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_1"
+                    android:layout_marginBottom="@dimen/dim_8"
+                    android:background="@color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ItemLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxStrokeColor="@color/light_blue">
+
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/foodItem"
+                        android:id="@+id/Item"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/sp_16"
                         android:fontFamily="@font/opensans"
-                        android:inputType="textEmailAddress"/>
+                        android:inputType="textEmailAddress"
+                        android:textSize="@dimen/sp_16" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="126dp"
                 android:layout_marginBottom="@dimen/dim_5"
                 android:background="@drawable/bg_layout_with_stroke"
+                android:orientation="vertical"
                 android:padding="@dimen/dim_16">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dim_8"
+                    android:fontFamily="@font/opensans"
                     android:text="Description"
                     android:textColor="@color/Text1"
-                    android:textSize="@dimen/sp_16"
-                    android:fontFamily="@font/opensans"
-                    android:layout_marginBottom="@dimen/dim_8"/>
+                    android:textSize="@dimen/sp_16" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dim_1"
-                    android:background="@color/white"
-                    android:layout_marginBottom="@dimen/dim_8"/>
+                    android:layout_marginBottom="@dimen/dim_8"
+                    android:background="@color/white" />
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/DescriptionLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxStrokeColor="@color/light_blue"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:boxStrokeColor="@color/light_blue">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/Description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/sp_16"
                         android:fontFamily="@font/opensans"
-                        android:inputType="textEmailAddress"/>
+                        android:inputType="textEmailAddress"
+                        android:textSize="@dimen/sp_16" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
             <fragment
