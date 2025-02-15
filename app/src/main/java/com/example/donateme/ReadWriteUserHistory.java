@@ -1,18 +1,19 @@
 package com.example.donateme;
 public class ReadWriteUserHistory {
-    public String food , description;
+    public String item , description , category;
 
-    public ReadWriteUserHistory(String food, String description) {
-        this.food = food;
+    public ReadWriteUserHistory(String item, String description, String category) {
+        this.item = item;
         this.description = description;
+        this.category = category;
     }
 
-    public String getFood() {
-        return food;
+    public String getItem() {
+        return item;
     }
 
-    public void setFood(String food) {
-        this.food = food;
+    public void setItem(String item) {
+        this.item = item;
     }
 
     public String getDescription() {
@@ -21,6 +22,14 @@ public class ReadWriteUserHistory {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
     public ReadWriteUserHistory (){};
 }

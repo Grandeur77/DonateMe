@@ -33,20 +33,43 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Food:"
+                    android:text="Category:"
                     android:fontFamily="@font/opensans"
                     android:textSize="@dimen/sp_23"
                     android:textColor="@color/Text1"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/rcfood"
+                    android:id="@+id/category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensans"
                     android:textSize="@dimen/sp_19"
                     android:textColor="@color/Text1"
                     android:layout_marginLeft="@dimen/dim_8"
-                    android:text="Roti" />
+                    android:text="Stationery" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Item Name:"
+                    android:fontFamily="@font/opensans"
+                    android:textSize="@dimen/sp_23"
+                    android:textColor="@color/Text1"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/rcitem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans"
+                    android:textSize="@dimen/sp_19"
+                    android:textColor="@color/Text1"
+                    android:layout_marginLeft="@dimen/dim_8"
+                    android:text="Books" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -69,7 +92,7 @@
                     android:textSize="@dimen/sp_19"
                     android:textColor="@color/Text1"
                     android:layout_marginLeft="@dimen/dim_8"
-                    android:text="Roti"/>
+                    android:text="10 Books"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

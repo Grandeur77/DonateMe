@@ -13,117 +13,132 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="@dimen/dim_20">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/prompt_User_profile"
-                    android:fontFamily="@font/opensans"
-                    android:textSize="@dimen/sp_28"
-                    android:textColor="@color/Text1"
+                    android:layout_marginTop="@dimen/dim_20"
                     android:layout_marginBottom="@dimen/dim_20"
-                    android:layout_marginTop="@dimen/dim_20" />
+                    android:fontFamily="@font/opensans"
+                    android:text="@string/prompt_User_profile"
+                    android:textColor="@color/Text1"
+                    android:textSize="@dimen/sp_28" />
+
                 <ImageView
                     android:id="@+id/imageView_Profile_dp"
                     android:layout_width="@dimen/dim_150"
                     android:layout_height="@dimen/dim_150"
-                    android:layout_marginBottom="@dimen/dim_20"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/dim_20"
                     android:background="@drawable/bg_layout_with_stroke"
                     tools:ignore="ContentDescription" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_layout_with_stroke"
                     android:layout_marginBottom="@dimen/dim_4"
+                    android:background="@drawable/bg_layout_with_stroke"
+                    android:orientation="vertical"
                     android:padding="@dimen/dim_16">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dim_8"
+                        android:fontFamily="@font/opensans"
                         android:text="@string/Full_Name"
                         android:textColor="@color/Text1"
-                        android:textSize="@dimen/sp_16"
-                        android:fontFamily="@font/opensans"
-                        android:layout_marginBottom="@dimen/dim_8"/>
+                        android:textSize="@dimen/sp_16" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dim_1"
-                        android:background="@color/white"
-                        android:layout_marginBottom="@dimen/dim_8"/>
+                        android:layout_marginBottom="@dimen/dim_8"
+                        android:background="@color/white" />
+
                     <TextView
                         android:id="@+id/textView_show_full_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans"
                         android:hint="@string/Loading.."
-                        android:textColorHint="@color/Text1"
                         android:textColor="@color/Text1"
-                        android:textSize="@dimen/sp_16"
-                        android:fontFamily="@font/opensans" />
+                        android:textColorHint="@color/Text1"
+                        android:textSize="@dimen/sp_16" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_layout_with_stroke"
                     android:layout_marginBottom="@dimen/dim_4"
+                    android:background="@drawable/bg_layout_with_stroke"
+                    android:orientation="vertical"
                     android:padding="@dimen/dim_16">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dim_8"
+                        android:fontFamily="@font/opensans"
                         android:text="@string/prompt_email"
                         android:textColor="@color/Text1"
-                        android:textSize="@dimen/sp_16"
-                        android:fontFamily="@font/opensans"
-                        android:layout_marginBottom="@dimen/dim_8"/>
+                        android:textSize="@dimen/sp_16" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dim_1"
-                        android:background="@color/white"
-                        android:layout_marginBottom="@dimen/dim_8"/>
+                        android:layout_marginBottom="@dimen/dim_8"
+                        android:background="@color/white" />
+
                     <TextView
                         android:id="@+id/textView_show_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans"
                         android:hint="@string/Loading.."
-                        android:textColorHint="@color/Text1"
                         android:textColor="@color/Text1"
-                        android:textSize="@dimen/sp_16"
-                        android:fontFamily="@font/opensans" />
+                        android:textColorHint="@color/Text1"
+                        android:textSize="@dimen/sp_16" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@drawable/bg_layout_with_stroke"
                     android:layout_marginBottom="@dimen/dim_4"
+                    android:background="@drawable/bg_layout_with_stroke"
+                    android:orientation="vertical"
                     android:padding="@dimen/dim_16">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dim_8"
+                        android:fontFamily="@font/opensans"
                         android:text="@string/phone_number"
                         android:textColor="@color/Text1"
-                        android:textSize="@dimen/sp_16"
-                        android:fontFamily="@font/opensans"
-                        android:layout_marginBottom="@dimen/dim_8"/>
+                        android:textSize="@dimen/sp_16" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dim_1"
-                        android:background="@color/white"
-                        android:layout_marginBottom="@dimen/dim_8"/>
+                        android:layout_marginBottom="@dimen/dim_8"
+                        android:background="@color/white" />
+
                     <TextView
                         android:id="@+id/textView_show_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans"
                         android:hint="@string/Loading.."
-                        android:textColorHint="@color/Text1"
                         android:textColor="@color/Text1"
-                        android:textSize="@dimen/sp_16"
-                        android:fontFamily="@font/opensans" />
+                        android:textColorHint="@color/Text1"
+                        android:textSize="@dimen/sp_16" />
                 </LinearLayout>
             </LinearLayout>
             <ProgressBar
