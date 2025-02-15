@@ -29,6 +29,7 @@ public class UserProfileActivity extends AppCompatActivity {
     private FirebaseAuth authProfile;
     private SwipeRefreshLayout swipeContainer;
     private ProgressBar progressBar;
+    private PreferencesManager preferencesManager; // SharedPreferences instance
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +45,22 @@ public class UserProfileActivity extends AppCompatActivity {
 
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
-
+        preferencesManager = new PreferencesManager(this); // Initialize SharedPreferences
 
         if (firebaseUser == null) {
             Toast.makeText(UserProfileActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
         } else {
             progressBar.setVisibility(View.VISIBLE);
-            showUserProfile(firebaseUser);
+            loadUserProfileFromCache();  // Load from SharedPreferences first
+            showUserProfile(firebaseUser); // Fetch from Firebase if needed
         }
+
+        // Check if profile pic is updated from intent
         if (getIntent().hasExtra("imageUri")) {
             String imageUri = getIntent().getStringExtra("imageUri");
             Picasso.with(UserProfileActivity.this).load(imageUri).into(imageView);
         }
+
         imageView.setOnClickListener(view -> {
             Intent intent = new Intent(UserProfileActivity.this, uploadProfilePicActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -66,23 +71,36 @@ public class UserProfileActivity extends AppCompatActivity {
     private void swipeToRefresh() {
         swipeContainer = findViewById(R.id.swipeContainer);
         swipeContainer.setOnRefreshListener(() -> {
-            //v-code
-            /*startActivity(getIntent());
-            finish();
-            overridePendingTransition(0,0);*/
-
-            //my code
             showUserProfile(authProfile.getCurrentUser());
             swipeContainer.setRefreshing(false);
         });
 
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light, android.R.color.holo_orange_light, android.R.color.holo_red_light);
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
+                android.R.color.holo_orange_light, android.R.color.holo_red_light);
+    }
+
+    // Load profile from SharedPreferences
+    private void loadUserProfileFromCache() {
+        fullName = preferencesManager.getFullName();
+        email = preferencesManager.getEmail();
+        mobile = preferencesManager.getMobile();
+        String profilePic = preferencesManager.getProfilePic();
+
+        if (fullName != null && email != null && mobile != null) {
+            textViewFullName.setText(fullName);
+            textViewEmail.setText(email);
+            textViewMobile.setText(mobile);
+        }
+
+        if (profilePic != null) {
+            Picasso.with(this).load(profilePic).into(imageView);
+        }
     }
 
     private void showUserProfile(FirebaseUser firebaseUser) {
         String userID = firebaseUser.getUid();
-        //Extracting user reference from database for "Registered Users"
         DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users");
+
         referenceProfile.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -95,9 +113,13 @@ public class UserProfileActivity extends AppCompatActivity {
                     textViewFullName.setText(fullName);
                     textViewEmail.setText(email);
                     textViewMobile.setText(mobile);
-                    //photo
+
+                    // Fetch profile picture
                     Uri uri = firebaseUser.getPhotoUrl();
-                    Picasso.with(UserProfileActivity.this).load(uri).into(imageView);
+                    if (uri != null) {
+                        Picasso.with(UserProfileActivity.this).load(uri).into(imageView);
+                        preferencesManager.saveUserProfile(fullName, email, mobile, uri.toString()); // Save to SharedPreferences
+                    }
                 } else {
                     Toast.makeText(UserProfileActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                 }
@@ -107,11 +129,12 @@ public class UserProfileActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(UserProfileActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
-                progressBar.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.GONE);
             }
         });
     }
 
+    @Override
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.VISIBLE);

@@ -95,4 +95,13 @@
     <string name="Feedback">Feedback</string>
     <string name="Reviews">Reviews</string>
     <string name="string16">Your valuable insights mean the world to us! Every rating and review helps us improve and make a greater impact. Together, let’s create a more compassionate and connected community.</string>
+    <string-array name="category_items">
+        <item>Fruits</item>
+        <item>Vegetables</item>
+        <item>Grains</item>
+        <item>Dairy</item>
+        <item>Meat</item>
+        <item>Bakery</item>
+        <item>Other</item>
+    </string-array>
 </resources>

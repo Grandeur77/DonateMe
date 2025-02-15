@@ -46,6 +46,9 @@ public class uploadProfilePicActivity extends AppCompatActivity {
     private Uri uriImage;
     private ProgressBar progressBar;
 
+    // Initialize PreferencesManager
+    private PreferencesManager preferencesManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,10 +63,13 @@ public class uploadProfilePicActivity extends AppCompatActivity {
         firebaseUser = authProfile.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference("DisplayPics");
 
-        // Load existing profile image if available
-        Uri uri = firebaseUser.getPhotoUrl();
-        if (uri != null) {
-            Picasso.with(uploadProfilePicActivity.this).load(uri).into(imageView_Profile_dp);
+        // Initialize PreferencesManager
+        preferencesManager = new PreferencesManager(this);
+
+        // Load existing profile image from SharedPreferences if available
+        String savedImageUri = preferencesManager.getProfileImageUri();
+        if (savedImageUri != null) {
+            Picasso.with(uploadProfilePicActivity.this).load(Uri.parse(savedImageUri)).into(imageView_Profile_dp);
         }
 
         // Gallery button click listener
@@ -152,6 +158,8 @@ public class uploadProfilePicActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri downloadUri) {
                                     updateProfilePicture(downloadUri);
+                                    // Save the image URI to SharedPreferences
+                                    preferencesManager.saveProfileImageUri(downloadUri.toString());
                                 }
                             });
                         }
