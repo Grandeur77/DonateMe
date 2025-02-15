@@ -71,6 +71,7 @@
                     android:id="@+id/spinner_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:background="@drawable/spinner_backgroung"/><!-- Use the drawable you created -->
 
             </LinearLayout>
@@ -111,6 +112,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans"
                         android:inputType="textEmailAddress"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/sp_16" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -151,6 +153,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/opensans"
                         android:inputType="textEmailAddress"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/sp_16" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
